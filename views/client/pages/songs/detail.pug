@@ -10,19 +10,20 @@ block main
 
                     .inner-actions
                         div(class="inner-action inner-time")
-                            i(class="fa-regular fa-clock") 20/10/2023
+                            i(class="fa-regular fa-clock")  20/10/2023
 
                         div(class="inner-action inner-singer")
                             i(class="fa-solid fa-microphone-lines") #{singer.fullName}
 
                         div(class="inner-action inner-topic")
-                            i(class="fa-solid fa-music") #{topic.title}
+                            i(class="fa-solid fa-music")    #{topic.title}
 
-                        div(class="inner-action inner-like")
-                            i(class="fa-regular fa-thumbs-up") #{song.like}
+                        div(class="inner-action inner-like" button-like=song.id)
+                            i(class="fa-regular fa-thumbs-up")
+                            span #{song.like} thích
 
                         div(class="inner-action inner-heart")
-                            i(class="fa-regular fa-heart") Bài hát yêu thích
+                            i(class="fa-regular fa-heart")  Bai hat yeu thich
 
                     .inner-play
                         .inner-avatar

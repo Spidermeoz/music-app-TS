@@ -122,24 +122,9 @@
 
 .singer-detail .inner-title {
   font-size: 28px;
-  font-weight: bold;
-  color: #d47900;
-  margin-bottom: 20px;
-}
-
-.singer-detail .inner-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.singer-detail .inner-action {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #555;
-  gap: 6px;
+  font-weight: 700;
+  color: #f57f20;
+  margin-bottom: 10px;
 }
 
 .singer-detail .inner-topic {
@@ -149,21 +134,65 @@
   padding: 2px 10px;
 }
 
-.singer-detail .inner-like i,
-.singer-detail .inner-heart i {
-  color: #555;
+.singer-detail .inner-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }
 
-.singer-detail .inner-heart {
-  color: #c44;
-  margin-top: 5px;
+.singer-detail .inner-actions .inner-action {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  color: #646464;
+}
+
+.singer-detail .inner-actions .inner-action i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.singer-detail .inner-actions .inner-action span {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.singer-detail .inner-actions .inner-like {
+  cursor: pointer;
+}
+
+.singer-detail .inner-actions .inner-like i {
+  color: #0059ff;
+}
+
+.singer-detail .inner-actions .inner-like.active {
+  color: #0059ff;
+}
+
+.singer-detail .inner-actions .inner-like.active i {
+  font-weight: 900;
+}
+
+.singer-detail .inner-actions .inner-heart {
+  cursor: pointer;
+}
+
+.singer-detail .inner-actions .inner-heart i {
+  color: #b90000;
 }
 
 .singer-detail .inner-play {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.singer-detail .inner-play .inner-audio {
+  flex: 1;
 }
 
 .singer-detail .inner-avatar {
@@ -177,7 +206,7 @@
   animation-duration: 12s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  /* animation-play-state: paused; */
+  animation-play-state: paused;
 }
 
 @keyframes spin {
@@ -199,11 +228,6 @@
   border: 1px solid #ddd;
   border-radius: 6px;
   margin-bottom: 20px;
-}
-
-.singer-detail .inner-audio audio {
-  width: 300px;
-  max-width: 100%;
 }
 
 .singer-detail .inner-desc .inner-label {

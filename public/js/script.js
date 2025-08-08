@@ -3,7 +3,8 @@ const aplayer = document.querySelector("#aplayer");
 if (aplayer) {
     let dataSong = aplayer.getAttribute("data-song")
     dataSong = JSON.parse(dataSong)
-    dataSinger = aplayer.getAttribute("data-singer")
+
+    let dataSinger = aplayer.getAttribute("data-singer")
     dataSinger = JSON.parse(dataSinger)
 
   const ap = new APlayer({
@@ -28,5 +29,31 @@ if (aplayer) {
   ap.on('pause', function () {
     avatar.style.animationPlayState = "paused"
   })
+} // End APlayer
+
+// Button like
+const buttonLike = document.querySelector("[button-like]")
+if(buttonLike){
+    buttonLike.addEventListener("click", () => {
+        const idSong = buttonLike.getAttribute("button-like")
+        const isActive = buttonLike.classList.contains("active")
+
+        const typeLike = isActive ? "dislike" : "like"
+
+        const link = `/songs/like/${typeLike}/${idSong}`
+
+        const option = {
+            method: "PATCH"
+        }
+
+        fetch(link, option)
+            .then(res => res.json())
+            .then(data => {
+                const span = buttonLike.querySelector("span")
+                span.innerHTML = `${data.like} thích`
+
+                buttonLike.classList.toggle("active")
+            })
+    })
 }
-// End APlayer
+// End Button like
