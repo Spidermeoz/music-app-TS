@@ -22,7 +22,7 @@ block main
                             i(class="fa-regular fa-thumbs-up")
                             span #{song.like} thích
 
-                        div(class="inner-action inner-heart")
+                        div(class=("inner-action inner-heart " + (song.isFavoriteSong ? "active" : "")) button-favorite=song.id)
                             i(class="fa-regular fa-heart")  Bai hat yeu thich
 
                     .inner-play
