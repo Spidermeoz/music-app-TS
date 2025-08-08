@@ -29,6 +29,21 @@ if (aplayer) {
   ap.on("pause", function () {
     avatar.style.animationPlayState = "paused";
   });
+
+  ap.on("ended", function () {
+    const link = `/songs/listen/${dataSong._id}`;
+
+    const option = {
+      method: "PATCH",
+    };
+
+    fetch(link, option)
+      .then((res) => res.json())
+      .then((data) => {
+        const elementListenSpan = document.querySelector(".singer-detail .inner-listen span")
+        elementListenSpan.innerHTML = `${data.listen} lượt nghe`
+      });
+  });
 } // End APlayer
 
 // Button like
@@ -128,7 +143,7 @@ if (boxSearch) {
         }
       });
   });
-  
+
   // Ẩn box-search khi click ra ngoài
   document.addEventListener("click", (e) => {
     if (!boxSearch.contains(e.target)) {
