@@ -12,7 +12,7 @@ router.get("/create", controller.create);
 
 // Parse multipart: field file là "avatar"
 router.post("/create",
-    upload.fields([
+    upload.single([
         {name: "avatar", maxCount: 1},
         {name: "audio", maxCount: 1}
     ]),
