@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
-import path from "path"
+import path from "path";
+import methodOverride from "method-override";
 
 import * as database from "./config/database";
 
@@ -15,7 +16,9 @@ dotenv.config();
 
 database.connect();
 
-app.use(express.static("public"))
+app.use(methodOverride("_method"));
+
+app.use(express.static("public"));
 
 app.set("views", `./views`);
 app.set("view engine", "pug");
@@ -30,7 +33,7 @@ app.use(
 );
 
 // App Local Variables
-app.locals.prefixAdmin = systemConfig.prefixAdmin
+app.locals.prefixAdmin = systemConfig.prefixAdmin;
 
 // Admin routes
 adminRoutes(app);
