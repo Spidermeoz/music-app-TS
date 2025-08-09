@@ -9,12 +9,14 @@ if (aplayer) {
 
   const ap = new APlayer({
     container: document.getElementById("aplayer"),
+    lrcType: 1,
     audio: [
       {
         name: dataSong.title,
         artist: dataSinger.fullName,
         url: dataSong.audio,
         cover: dataSong.avatar,
+        lrc: dataSong.lyrics,
       },
     ],
     autoplay: true,
@@ -40,8 +42,10 @@ if (aplayer) {
     fetch(link, option)
       .then((res) => res.json())
       .then((data) => {
-        const elementListenSpan = document.querySelector(".singer-detail .inner-listen span")
-        elementListenSpan.innerHTML = `${data.listen} lượt nghe`
+        const elementListenSpan = document.querySelector(
+          ".singer-detail .inner-listen span"
+        );
+        elementListenSpan.innerHTML = `${data.listen} lượt nghe`;
       });
   });
 } // End APlayer
@@ -150,5 +154,4 @@ if (boxSearch) {
       boxSuggest.classList.remove("show");
     }
   });
-}
-// End Search Suggest
+} // End Search Suggest
